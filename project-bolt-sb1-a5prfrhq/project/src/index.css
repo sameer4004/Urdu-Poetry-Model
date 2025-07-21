@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme variables */
+html.light {
+  --bg: #fff;
+  --text: #222;
+}
+html.dark {
+  --bg: #000;
+  --text: #fff;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background 0.2s, color 0.2s;
+}
+
+/* Custom font support for Urdu */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
+
+body {
+  font-family: 'Noto Nastaliq Urdu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  direction: rtl;
+}
+
+/* Override direction for email inputs and English text */
+input[type="email"], 
+input[dir="ltr"],
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a8a8;
+}
+
+/* Smooth transitions */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Card hover effects */
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Text selection */
+::selection {
+  background-color: rgba(55, 65, 81, 0.2);
+}
